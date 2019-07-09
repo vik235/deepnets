@@ -70,3 +70,15 @@ Standardizing the input . 255 is the max value of the channel
 train_set_x = train_set_x_flatten/255
 test_set_x = test_set_x_flatten/255
 
+w, b = initialize_with_zeros(4)
+
+print(w.shape)
+print(b)
+
+d = model(train_set_x, train_set_y, test_set_x, test_set_y, num_iterations = 2000, learning_rate = 0.005, print_cost = True)
+
+plt.plot(d["costs"])
+plt.ylabel('cost')
+plt.xlabel('iterations (per hundreds)')
+plt.title("Learning rate =" + str(d["learning_rate"]))
+plt.show()
